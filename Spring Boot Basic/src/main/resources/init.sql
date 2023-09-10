@@ -1,0 +1,1 @@
+insert into Location values(1,'Mangalore');
