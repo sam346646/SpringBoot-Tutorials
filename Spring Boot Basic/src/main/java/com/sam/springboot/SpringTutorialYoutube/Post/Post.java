@@ -2,7 +2,13 @@ package com.sam.springboot.SpringTutorialYoutube.Post;
 
 import com.sam.springboot.SpringTutorialYoutube.User.User;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Post {
+	
+	@Id
 	private String id;
 	private String postDate;
 	private User user;

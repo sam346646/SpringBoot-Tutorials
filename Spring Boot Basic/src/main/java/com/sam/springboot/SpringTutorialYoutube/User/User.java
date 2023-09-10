@@ -2,7 +2,13 @@ package com.sam.springboot.SpringTutorialYoutube.User;
 
 import com.sam.springboot.SpringTutorialYoutube.Location.Location;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class User {
+	
+	@Id
 	private String id;
 	private String firstname;
 	private String lastname;

@@ -1,6 +1,7 @@
 package com.sam.springboot.SpringTutorialYoutube.Location;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,7 +24,7 @@ public class LocationController {
 	}
 	
 	@RequestMapping(value = "/location/{id}")
-	public Location getLocation(@PathVariable String id) {
+	public Optional<Location> getLocation(@PathVariable String id) {
 		return locationService.getLocation(id);
 	}
 	

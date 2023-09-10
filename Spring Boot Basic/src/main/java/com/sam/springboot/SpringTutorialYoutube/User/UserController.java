@@ -1,6 +1,7 @@
 package com.sam.springboot.SpringTutorialYoutube.User;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,7 +24,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/user/{id}")
-	public User getUser(@PathVariable String id) {
+	public Optional<User> getUser(@PathVariable String id) {
 		return userService.getUser(id);
 	}
 	

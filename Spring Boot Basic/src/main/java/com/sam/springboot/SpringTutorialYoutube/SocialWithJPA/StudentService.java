@@ -14,7 +14,6 @@ public class StudentService {
 	private StudentRepository studentRepository;
 
 	public List<Student> getAllStudents() {
-
 		List<Student> students = new ArrayList<>();
 		studentRepository.findAll().forEach(students::add);
 		return students;
