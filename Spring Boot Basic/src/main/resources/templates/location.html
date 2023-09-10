@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HOME PAGE</title>
+	</head>
+	<body>
+		<h1>Manage Location</h1>
+		
+		<ul>
+			<li th:each="location : ${locations}">
+				<span th:text="${location.name}">Default</span>
+			</li>
+		</ul>
+	</body>
+</html>

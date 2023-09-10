@@ -1,0 +1,59 @@
+package com.sam.springboot.SpringTutorialYoutube.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.sam.springboot.SpringTutorialYoutube.model.User;
+import com.sam.springboot.SpringTutorialYoutube.service.UserService;
+
+@RestController
+public class UserController {
+	
+	@Autowired
+	private UserService userService;
+
+	@RequestMapping(value = "/user")
+	public List<User> getAllUser() {
+		return userService.getAllUser();
+	}
+	
+	@RequestMapping(value = "/user/{id}")
+	public Optional<User> getUser(@PathVariable String id) {
+		return userService.getUser(id);
+	}
+	
+	@GetMapping(value = "/user/byLocation/{id}")
+	public List<User> findUsersByLocation(@PathVariable String id) {
+		return userService.findUsersByLocation(id);
+	}
+	
+	@GetMapping(value = "/user/byFirstName/{firstName}") 
+	public List<User> findUserByFirstName(@PathVariable String firstName){
+		return userService.findUserByFirstName(firstName);
+	}
+	
+	@PostMapping(value = "/user/add")
+	public void addUser(@RequestBody User user) {
+		userService.addUser(user);
+	}
+	
+	@PutMapping(value = "/user/update/{id}")
+	public void updateUser(@RequestBody User user,@PathVariable String id) {
+		userService.updateUser(user,id);
+	}
+	
+	@DeleteMapping(value = "/user/delete/{id}")
+	public void deleteUser(@PathVariable String id) {
+		userService.deleteUser(id);
+	}
+}
