@@ -4,6 +4,7 @@ import com.sam.springboot.SpringTutorialYoutube.User.User;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Post {
@@ -11,6 +12,7 @@ public class Post {
 	@Id
 	private String id;
 	private String postDate;
+	@ManyToOne
 	private User user;
 	private String details;
 	

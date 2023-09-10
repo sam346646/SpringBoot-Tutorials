@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-	
+
 	@Autowired
 	UserRepository userRepository;
-	
+
 	public List<User> getAllUser() {
 		List<User> users = new ArrayList<>();
 		userRepository.findAll().forEach(users::add);
@@ -21,6 +21,12 @@ public class UserService {
 
 	public Optional<User> getUser(String id) {
 		return userRepository.findById(id);
+	}
+
+	public List<User> findUsersByLocation(String locationId){
+		List<User> users= new ArrayList<>();
+		userRepository.findByLocationId(locationId).forEach(users::add);
+		return users;
 	}
 
 	public void addUser(User user) {

@@ -7,6 +7,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sam.springboot.SpringTutorialYoutube.User.User;
+
 @Service
 public class PostService {
 
@@ -23,6 +25,12 @@ public class PostService {
 		return postRepository.findById(id);
 	}
 
+	public List<Post> findPostsByUser(String userId){
+		List<Post> posts= new ArrayList<>();
+		postRepository.findByUserId(userId).forEach(posts::add);
+		return posts;
+	}
+	
 	public void addPost(Post post) {
 		postRepository.save(post);
 	}
