@@ -7,8 +7,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sam.springboot.SpringTutorialYoutube.User.User;
-
 @Service
 public class PostService {
 

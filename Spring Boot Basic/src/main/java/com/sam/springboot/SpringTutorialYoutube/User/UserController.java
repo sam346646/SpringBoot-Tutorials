@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -26,6 +27,11 @@ public class UserController {
 	@RequestMapping(value = "/user/{id}")
 	public Optional<User> getUser(@PathVariable String id) {
 		return userService.getUser(id);
+	}
+	
+	@GetMapping(value = "/user/byLocation/{id}")
+	public List<User> findUsersByLocation(@PathVariable String id) {
+		return userService.findUsersByLocation(id);
 	}
 	
 	@PostMapping(value = "/user/add")
