@@ -34,6 +34,11 @@ public class UserController {
 		return userService.findUsersByLocation(id);
 	}
 	
+	@GetMapping(value = "/user/byFirstName/{firstName}") 
+	public List<User> findUserByFirstName(@PathVariable String firstName){
+		return userService.findUserByFirstName(firstName);
+	}
+	
 	@PostMapping(value = "/user/add")
 	public void addUser(@RequestBody User user) {
 		userService.addUser(user);

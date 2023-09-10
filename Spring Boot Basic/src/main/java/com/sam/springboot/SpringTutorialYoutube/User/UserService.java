@@ -23,9 +23,15 @@ public class UserService {
 		return userRepository.findById(id);
 	}
 
-	public List<User> findUsersByLocation(String locationId){
-		List<User> users= new ArrayList<>();
+	public List<User> findUsersByLocation(String locationId) {
+		List<User> users = new ArrayList<>();
 		userRepository.findByLocationId(locationId).forEach(users::add);
+		return users;
+	}
+
+	public List<User> findUserByFirstName(String firstName){
+		List<User> users= new ArrayList<>();
+		userRepository.findByFirstname(firstName).forEach(users::add);
 		return users;
 	}
 
