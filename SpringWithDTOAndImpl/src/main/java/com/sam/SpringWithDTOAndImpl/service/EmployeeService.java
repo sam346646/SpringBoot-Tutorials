@@ -1,41 +1,20 @@
 package com.sam.SpringWithDTOAndImpl.service;
 
 import java.util.List;
-import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.sam.SpringWithDTOAndImpl.dto.EmployeeDto;
 
-import com.sam.SpringWithDTOAndImpl.model.Employee;
-import com.sam.SpringWithDTOAndImpl.repository.EmployeeRepo;
-
-@Service
-public class EmployeeService {
+public interface EmployeeService {
 	
-	@Autowired
-	private EmployeeRepo employeeRepo;
+	public EmployeeDto addEmployee(EmployeeDto employeeDto);
 	
-	public Employee addEmployee(Employee employee) {
-		return employeeRepo.save(employee);
-	}
+	public List<EmployeeDto> getAllEmployee();
 	
-	public List<Employee> getAllEmployee() {
-		return employeeRepo.findAll();
-	}
+	public EmployeeDto getEmployeeById(Long id) throws Exception;
 	
-	public Optional<Employee> getEmployeeById(Long id) {
-		return employeeRepo.findById(id);
-	}
+	public EmployeeDto getEmployeeByName(String name) throws Exception;
 	
-	public Optional<Employee> getEmployeeByName(String name) {
-		return employeeRepo.findByName(name);
-	}
+	public EmployeeDto updateEmployee(EmployeeDto employeeDto);
 	
-	public Employee updateEmployee(Employee employee) {
-		return employeeRepo.save(employee);
-	}
-	
-	public void deleteEmployeeById(Long id) {
-		employeeRepo.deleteById(id);
-	}
+	public void deleteEmployeeById(Long id);
 }

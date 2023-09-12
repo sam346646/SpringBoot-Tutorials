@@ -1,7 +1,6 @@
 package com.sam.SpringWithDTOAndImpl.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sam.SpringWithDTOAndImpl.model.Employee;
+import com.sam.SpringWithDTOAndImpl.dto.EmployeeDto;
 import com.sam.SpringWithDTOAndImpl.service.EmployeeService;
 
 @RestController
@@ -24,27 +23,27 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 
 	@PostMapping("/add")
-	public Employee addEmployee(@RequestBody Employee employee) {
+	public EmployeeDto addEmployee(@RequestBody EmployeeDto employee) {
 		return employeeService.addEmployee(employee);
 	}
 	
 	@GetMapping("/all")
-	public List<Employee> getAllEmployees() {
+	public List<EmployeeDto> getAllEmployees() {
 		return employeeService.getAllEmployee();
 	}
 	
 	@GetMapping("/byId/{id}")
-	public Optional<Employee> getEmployeeById(@PathVariable Long id) {
+	public EmployeeDto getEmployeeById(@PathVariable Long id) throws Exception {
 		return employeeService.getEmployeeById(id);
 	}
 	
 	@GetMapping("/byName/{name}")
-	public Optional<Employee> getEmployeeById(@PathVariable String name) {
+	public EmployeeDto getEmployeeById(@PathVariable String name) throws Exception {
 		return employeeService.getEmployeeByName(name);
 	}
 	
 	@PutMapping("/update")
-	public Employee updatEmployee(@RequestBody Employee employee) {
+	public EmployeeDto updatEmployee(@RequestBody EmployeeDto employee) {
 		return employeeService.updateEmployee(employee);
 	}
 	
