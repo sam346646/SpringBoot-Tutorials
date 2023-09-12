@@ -14,10 +14,10 @@ public class SecurityConfig {
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
 		.authorizeHttpRequests((auth) -> auth
-		.requestMatchers("/employee/all","/employee/byId/*","/employee/byName/*")
-		.permitAll()
-		.anyRequest()
-		.authenticated())
+			.requestMatchers("/employee/all","/employee/byId/*","/employee/byName/*")
+			.permitAll()
+			.anyRequest()
+			.authenticated())
 		.formLogin();
 		
 		return http.build();
