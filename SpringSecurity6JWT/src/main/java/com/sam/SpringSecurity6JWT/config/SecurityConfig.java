@@ -29,7 +29,7 @@ public class SecurityConfig {
 		.cors()
 		.disable()
 		.authorizeHttpRequests()
-		.requestMatchers("")
+		.requestMatchers("api/auth/**")
 		.permitAll()
 		.anyRequest()
 		.authenticated()
@@ -38,7 +38,7 @@ public class SecurityConfig {
 		.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		.and()
 		.authenticationProvider(authenticationProvider)
-		.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);	
+		.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 		
 		return http.build();
 	}
