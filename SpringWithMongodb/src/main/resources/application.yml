@@ -4,4 +4,3 @@ spring:
       database: studentdbs
       port: 27017
       host: localhost
-  

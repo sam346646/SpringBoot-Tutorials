@@ -14,6 +14,8 @@ public class Student {
 	private String id;
 	private String firstname;
 	private String lastname;
+//	@Indexed(unique = true)
+//	In applicationIn.yml : spring.data.mongodb.auto-index-creation= true
 	private String email;
 	private Gender gender;
 	private Address address;
