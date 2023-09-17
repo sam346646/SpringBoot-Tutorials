@@ -1,5 +1,5 @@
 import './App.css';
-import CounterApp from './counter/CounterApp'
+import CounterApp from './ReduxToolkit/CounterApp'
 
 function App() {
   return (

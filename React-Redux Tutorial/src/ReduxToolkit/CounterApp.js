@@ -4,7 +4,7 @@ import { decrement, increment } from './counterReducer';
 
 function CounterApp() {
 
-  const value = useSelector(state => state.counter.value);
+  const counter = useSelector(state => state.counter.value);
   const dispatch=useDispatch()
 
   return (
@@ -12,7 +12,7 @@ function CounterApp() {
         <h2 style={{color:"red"}}>COUNTER APP</h2>
 
         <button style={{background:"#222",color:"white",padding:"20px"}} onClick={() => dispatch(decrement())}>-</button>
-        &emsp;&emsp;{value}&emsp;&emsp;
+        &emsp;&emsp;{counter}&emsp;&emsp;
         <button style={{background:"#222",color:"white",padding:"20px"}} onClick={() => dispatch(increment())}>+</button>
     </div>
   )
